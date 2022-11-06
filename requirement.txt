@@ -3,3 +3,4 @@ mysqlclient
 djangorestframework
 pyjwt
 djangorestframework-simplejwt
+django-rest-swagger
