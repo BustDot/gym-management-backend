@@ -4,3 +4,4 @@ djangorestframework
 pyjwt
 djangorestframework-simplejwt
 django-rest-swagger
+django-cors-headers
