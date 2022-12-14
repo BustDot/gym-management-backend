@@ -1,8 +1,8 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from django.contrib.auth.models import User
-from dbproject.models.user.user import user
-
+from dbproject.models.sysuser import SysUser
+import requests
 
 class UserView(APIView):
     def post(self, request):
@@ -25,7 +25,10 @@ class UserView(APIView):
         user = User(username=username)
         user.set_password(password)
         user.save()
-        user.objects.create(user=user, avatar="https://img2.baidu.com/it/u=2161949891,656888789&fm=26&fmt=auto")
+        resp = requests.get("http://api.btstu.cn/sjtx/api.php?lx=a1")
+        resp = resp.json()
+        avatar_url = resp.get("imgurl")
+        SysUser.objects.create(user=user, avatar=avatar_url)
         return Response({
             'result': "success",
         })

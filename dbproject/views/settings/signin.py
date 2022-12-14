@@ -2,7 +2,8 @@ from django.contrib.auth import authenticate, login
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from django.contrib.auth.models import User
-from dbproject.models.user.user import user
+from dbproject.models.sysuser import SysUser
+
 
 class SigninView(APIView):
     def post(self, request):
@@ -18,4 +19,3 @@ class SigninView(APIView):
         return Response({
             'result': "success"
         })
-

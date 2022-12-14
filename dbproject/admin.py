@@ -1,5 +1,5 @@
 from django.contrib import admin
-from dbproject.models.user.user import user
+from dbproject.models.sysuser import SysUser
 # Register your models here.
 
-admin.site.register(user)
+admin.site.register(SysUser)

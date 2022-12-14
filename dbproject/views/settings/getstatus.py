@@ -5,7 +5,7 @@ from django.contrib.auth import authenticate, login
 
 class GetstatusView(APIView):
     def get(self, request):
-        user = request.user
+        user = request.SysUser
         if user.is_authenticated:
             return Response({
                 'result': "login",

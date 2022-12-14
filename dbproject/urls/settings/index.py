@@ -1,4 +1,4 @@
-from django.urls import path, include
+from django.urls import path
 from dbproject.views.settings.getinfo import InfoView
 from dbproject.views.settings.register import UserView
 from dbproject.views.settings.signin import SigninView
