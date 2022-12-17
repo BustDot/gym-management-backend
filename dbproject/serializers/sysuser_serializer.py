@@ -5,4 +5,4 @@ from dbproject.models.sysuser import SysUser
 class SysuserSerializer(ModelSerializer):
     class Meta:
         model = SysUser
-        fields = ["pk", "name", "avatar", "gender", "phone", "card_time", "card_left_time"]
+        fields = ["id", "name", "avatar", "gender", "age", "phone", "course"]

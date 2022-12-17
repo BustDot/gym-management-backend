@@ -2,7 +2,6 @@ from django.urls import path
 from dbproject.views.settings.getinfo import InfoView
 from dbproject.views.settings.register import UserView
 from dbproject.views.settings.signin import SigninView
-from dbproject.views.settings.getstatus import GetstatusView
 from rest_framework_simplejwt.views import (
     TokenObtainPairView,
     TokenRefreshView,
@@ -14,5 +13,4 @@ urlpatterns = [
     path('getinfo/', InfoView.as_view(), name="settings_getinfo"),
     path('register/', UserView.as_view(), name="settings_register"),
     path('signin/', SigninView.as_view(), name="settings_signin"),
-    path('getstatus/', GetstatusView.as_view(), name="settings_getstatus"),
 ]
