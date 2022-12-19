@@ -10,6 +10,7 @@ urlpatterns = [
     path("sysuser/", include("dbproject.urls.sysuser.index")),
     path("coach/", include("dbproject.urls.coach.index")),
     path("course/", include("dbproject.urls.course.index")),
+    path("courseorder/", include("dbproject.urls.courseorder.index")),
 
     path(r'docs/', schema_view),
 
