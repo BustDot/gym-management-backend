@@ -22,6 +22,8 @@ class ListUserOrderView(APIView):
             for course in courses:
                 serializer = CourseSerializer(course)
                 temp = serializer.data
+                coach = Coach.objects.get(id=temp.get("coach"))
+                temp["coach_name"] = coach.name
                 if CourseOrder.objects.filter(sys_user=user, course=course).exists():
                     temp["is_selected"] = True
                 else:

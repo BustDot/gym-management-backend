@@ -11,6 +11,7 @@ urlpatterns = [
     path("coach/", include("dbproject.urls.coach.index")),
     path("course/", include("dbproject.urls.course.index")),
     path("courseorder/", include("dbproject.urls.courseorder.index")),
+    path("data/", include("dbproject.urls.datadisplay.index")),
 
     path(r'docs/', schema_view),
 

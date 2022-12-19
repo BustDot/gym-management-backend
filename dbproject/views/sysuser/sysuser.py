@@ -3,6 +3,7 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from dbproject.models.sysuser import SysUser
+from dbproject.models.balance_order import BalanceOrder
 from dbproject.serializers.sysuser_serializer import SysuserSerializer
 
 
@@ -30,6 +31,7 @@ class SysUserView(APIView):
                 top_up_value = int(top_up_value)
                 user.card_time = user.card_time + top_up_value
                 user.card_left_time = user.card_left_time + top_up_value
+                BalanceOrder.objects.create(sys_user=user, top_up_value=top_up_value)
             elif data.get("name"):
                 user.name = data.get("name")
                 age = data.get("age")
