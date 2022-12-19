@@ -8,6 +8,9 @@ urlpatterns = [
     path("", index, name="index"),
     path("settings/", include("dbproject.urls.settings.index")),
     path("sysuser/", include("dbproject.urls.sysuser.index")),
+    path("coach/", include("dbproject.urls.coach.index")),
+    path("course/", include("dbproject.urls.course.index")),
+
     path(r'docs/', schema_view),
 
 ]

@@ -25,7 +25,7 @@ class UserView(APIView):
         user = User(username=username)
         user.set_password(password)
         user.save()
-        resp = requests.get("http://api.btstu.cn/sjtx/api.php?lx=a1")
+        resp = requests.get("http://api.btstu.cn/sjtx/api.php?lx=a1&format=json")
         resp = resp.json()
         avatar_url = resp.get("imgurl")
         SysUser.objects.create(user=user, avatar=avatar_url)

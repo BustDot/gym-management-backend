@@ -16,6 +16,7 @@ class InfoView(APIView):
                 'id': sys_user.user.id,
                 'username': sys_user.user.username,
                 'avatar': sys_user.avatar,
+                'is_admin': sys_user.user.is_superuser
             })
         except:
             return Response({
