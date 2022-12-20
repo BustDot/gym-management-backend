@@ -8,7 +8,7 @@ from dbproject.serializers.balance_order_serializer import BalanceOrderSerialize
 
 class ListBalanceOrderView(APIView):
     def get(self, request):
-        queryset = BalanceOrder.objects.all()[:5]
+        queryset = BalanceOrder.objects.all().order_by("-created_time")[:5]
         serializer = BalanceOrderSerializer(queryset, many=True)
         data = []
         for x in serializer.data:

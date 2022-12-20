@@ -25,19 +25,19 @@ class DataDisplayView(APIView):
         end = today - datetime.timedelta(5)
         for i in range(7):
             course_order_x.append(start.day)
+            course_order_y.append(CourseOrder.objects.filter(created_time__range=(start, end)).count())
             start = start + datetime.timedelta(1)
             end = end + datetime.timedelta(1)
-            course_order_y.append(CourseOrder.objects.filter(created_time__range=(today, start)).count())
 
         balance_order_y = []
         today = datetime.date.today()
         start = today - datetime.timedelta(6)
         end = today - datetime.timedelta(5)
         for i in range(7):
+            total = BalanceOrder.objects.filter(created_time__range=(start, end)).aggregate(nums=Sum('top_up_value'))
+            balance_order_y.append(0 if total.get("nums") is None else total.get("nums"))
             start = start + datetime.timedelta(1)
             end = end + datetime.timedelta(1)
-            total = BalanceOrder.objects.filter(created_time__range=(today, start)).aggregate(nums=Sum('top_up_value'))
-            balance_order_y.append(0 if total.get("nums") is None else total.get("nums"))
 
         response = {
             "sys_user_count": sys_user_count,
